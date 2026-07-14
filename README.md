@@ -116,7 +116,7 @@ Weather-App/
 ## Clone Repository
 
 ```bash
-git clone <[repository-url](https://github.com/arooshui/WeatherTracker)>
+git clone <https://github.com/arooshui/WeatherTracker>
 cd Weather-App
 ```
 
