@@ -1,0 +1,40 @@
+services:
+
+  mysql:
+
+    image: mysql:8.0
+
+    container_name: weather_mysql
+
+    restart: always
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: weather_tracker
+
+    ports:
+      - "3307:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  streamlit:
+
+    build: .
+
+    container_name: weather_app
+
+    restart: always
+
+    depends_on:
+      - mysql
+
+    ports:
+      - "8501:8501"
+
+    env_file:
+      - .env
+
+volumes:
+
+  mysql_data:
